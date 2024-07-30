@@ -1,15 +1,15 @@
-import User from "../models/user.model.js"
+import User from "../models/user.model.js";
 
 export const getUserForSidebar = async (req, res, next) => {
   try {
-    const loggedInUserId = req.user.id
+    const loggedInUserId = req.user.id;
 
     const allUserExceptLoggedIn = await User.find({
       _id: { $ne: loggedInUserId },
-    }).select("-password")
+    }).select("-password");
 
-    res.status(200).json(allUserExceptLoggedIn)
+    res.status(200).json(allUserExceptLoggedIn);
   } catch (error) {
-    next(error)
+    next(error);
   }
-}
+};

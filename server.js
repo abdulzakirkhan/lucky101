@@ -2,7 +2,6 @@ import express from "express";
 import dotenv from "dotenv";
 import mongoose from "mongoose";
 import cookieParser from "cookie-parser";
-
 import { app } from "./socket/socket.js";
 
 dotenv.config();
@@ -18,8 +17,7 @@ mongoose
     console.log(err);
   });
 
-const PORT = process.env.PORT;
-
+const PORT = process.env.PORT || 300;
 app.use(express.json());
 app.use(cookieParser());
 
